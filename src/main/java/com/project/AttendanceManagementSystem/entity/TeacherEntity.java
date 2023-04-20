@@ -3,6 +3,7 @@ package com.project.AttendanceManagementSystem.entity;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -36,6 +37,7 @@ public class TeacherEntity {
 	}
 
 	@Id
+	@Column(name = "teacher_id")
 	private String teacher_id;
 	private String tfname;
 	private String tlname;
@@ -44,9 +46,9 @@ public class TeacherEntity {
 	private String contact;
 	private String salary;
 	private String opened;
-	@OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "batch_id" )
-	private Set<BatchEntity> batches;
+//	@OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JoinColumn(name = "batch_id" )
+//	private Set<BatchEntity> batches;
 	@OneToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<AttendanceEntity> attendances;
 
@@ -114,13 +116,13 @@ public class TeacherEntity {
 		this.opened = opened;
 	}
 
-	public Set<BatchEntity> getBatches() {
-		return batches;
-	}
-
-	public void setBatches(Set<BatchEntity> batches) {
-		this.batches = batches;
-	}
+//	public Set<BatchEntity> getBatches() {
+//		return batches;
+//	}
+//
+//	public void setBatches(Set<BatchEntity> batches) {
+//		this.batches = batches;
+//	}
 
 	public Set<AttendanceEntity> getAttendances() {
 		return attendances;
