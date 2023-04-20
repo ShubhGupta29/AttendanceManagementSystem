@@ -32,7 +32,6 @@ CREATE TABLE IF NOT EXISTS  `batch` (
                          `batch_id` varchar(30) NOT NULL,
                          `subject` varchar(30) DEFAULT NULL,
                          `days` varchar(30) DEFAULT NULL,
-                         `teacher_id` varchar(30) DEFAULT NULL,
                          PRIMARY KEY (`batch_id`)
 );
 

@@ -22,9 +22,9 @@ public class BatchEntity {
 	private String batch_id;
 	private String subject;
 	private String days;
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "teacher_id")
-	private TeacherEntity teacher;
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "teacher_id")
+//	private TeacherEntity teacher;
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<AttendanceEntity> attendances;
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -54,13 +54,13 @@ public class BatchEntity {
 		this.days = days;
 	}
 
-	public TeacherEntity getTeacher() {
-		return teacher;
-	}
-
-	public void setTeacher(TeacherEntity teacher) {
-		this.teacher = teacher;
-	}
+//	public TeacherEntity getTeacher() {
+//		return teacher;
+//	}
+//
+//	public void setTeacher(TeacherEntity teacher) {
+//		this.teacher = teacher;
+//	}
 
 	public Set<AttendanceEntity> getAttendances() {
 		return attendances;
@@ -83,7 +83,7 @@ public class BatchEntity {
 		this.batch_id = batch_id;
 		this.subject = subject;
 		this.days = days;
-		this.teacher = teacher;
+//		this.teacher = teacher;
 	}
 
 	public BatchEntity() {

@@ -55,9 +55,7 @@ public class AttendanceManagementSystemApplication {
 		    teacherRepository.save(t3);
 		    
 			
-		    batchRepository.save(new BatchEntity("101", "Core java", "25", t1));
-		    batchRepository.save(new BatchEntity("102", "Advance Java", "35", t2));
-		    batchRepository.save(new BatchEntity("103", "PHP", "40", t3));
+		    
 
 		    
 		    studentRepository.save(new StudentEntity("001", "Kaushal", "Arora", "kaushal001", "1234", "male", "9988776655", "not_opened"));
@@ -67,6 +65,11 @@ public class AttendanceManagementSystemApplication {
 		    studentRepository.save(new StudentEntity("005", "Ranbir", "Kapoor", "ranbir005", "ranbir", "male", "9425077229", "not_opened"));
 		    studentRepository.save(new StudentEntity("006", "Yogita", "Mehra", "yogita108", "yogita", "female", "9425094354", "not_opened"));
 
+		    
+		    batchRepository.save(new BatchEntity("b1", "Core java", "25", t1));
+		    batchRepository.save(new BatchEntity("b2", "Advance Java", "35", t2));
+		    batchRepository.save(new BatchEntity("b3", "PHP", "40", t3));
+		    
 			Resource resource = new ClassPathResource("database.sql");
 			ScriptUtils.executeSqlScript(dataSource().getConnection(), new EncodedResource(resource, "UTF-8"));
 		};
