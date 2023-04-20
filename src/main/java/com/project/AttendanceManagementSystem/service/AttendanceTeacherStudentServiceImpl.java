@@ -43,6 +43,7 @@ public class AttendanceTeacherStudentServiceImpl implements AttendanceTeacherStu
 			if (validator.validateBatch(batchId)) {
 				if (validator.validateStudent(studentId)) {
 					valid = true;
+					output="all true";
 				} else {
 					output = "Student ID not correct";
 				}
@@ -52,6 +53,7 @@ public class AttendanceTeacherStudentServiceImpl implements AttendanceTeacherStu
 		} else {
 			output = "teacher ID not correct";
 		}
+		System.out.println("output is "+output);
 		if (valid) {
 
 			Optional<TeacherEntity> ote = teacherDao.findById(teacherID);
@@ -63,10 +65,14 @@ public class AttendanceTeacherStudentServiceImpl implements AttendanceTeacherStu
 			Optional<BatchEntity> obe = batchDao.findById(batchId);
 			BatchEntity be = obe.orElse(new BatchEntity());
 
+			
+			System.out.println("reached service");
 			AttendanceEntity attendanceEntity = new AttendanceEntity(new Date().toString(), te, be, se, se.getSfname());
 			attendanceDao.save(attendanceEntity);
 			
 			output="Attendance marked";
+			System.out.println("DAO is "+attendanceDao.count());
+			System.out.println("output is "+output);
 
 		}
 		return output;
