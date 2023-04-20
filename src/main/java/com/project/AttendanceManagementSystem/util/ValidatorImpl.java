@@ -31,45 +31,64 @@ public class ValidatorImpl implements Validator{
 
 	@Override
 	public boolean validateTeacher(String teacherId) {
-		Optional<TeacherEntity> ote=teacherDao.findById(teacherId);
-		TeacherEntity te=ote.orElse(new TeacherEntity());
-		if(te instanceof TeacherEntity) {
-			if(te.getTeacher_id() !=null) {
-				return true;
+		try {
+			
+			Optional<TeacherEntity> ote=teacherDao.findById(teacherId);
+			TeacherEntity te=ote.orElse(new TeacherEntity());
+			if(te instanceof TeacherEntity) {
+				if(te.getTeacher_id() !=null) {
+					return true;
+				}
+				else {
+					return false;
+				}
 			}
-			else {
-				return false;
-			}
+			return false;
+		}
+		catch(Exception e) {
+		e.printStackTrace();
 		}
 		return false;
 	}
 
 	@Override
 	public boolean validateStudent(String studentId) {
-		Optional<StudentEntity> ose=studentDao.findById(studentId);
-		StudentEntity se=ose.orElse(new StudentEntity());
-		if(se instanceof StudentEntity) {
-			if(se.getStudent_id() !=null) {
-				return true;
+		try {
+			Optional<StudentEntity> ose=studentDao.findById(studentId);
+			StudentEntity se=ose.orElse(new StudentEntity());
+			if(se instanceof StudentEntity) {
+				if(se.getStudent_id() !=null) {
+					return true;
+				}
+				else {
+					return false;
+				}
 			}
-			else {
-				return false;
-			}
+			return false;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}
 
 	@Override
 	public boolean validateBatch(String batchId) {
-		Optional<BatchEntity> obe=batchDao.findById(batchId);
-		BatchEntity be=obe.orElse(new BatchEntity());
-		if(be instanceof BatchEntity) {
-			if(be.getBatch_id() !=null) {
-				return true;
+		try {
+			Optional<BatchEntity> obe=batchDao.findById(batchId);
+			BatchEntity be=obe.orElse(new BatchEntity());
+			if(be instanceof BatchEntity) {
+				if(be.getBatch_id() !=null) {
+					return true;
+				}
+				else {
+					return false;
+				}
 			}
-			else {
-				return false;
-			}
+			return false;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
 		}
 		return false;
 	}

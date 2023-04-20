@@ -82,6 +82,8 @@ public class AttendanceEntity {
 		this.student = student;
 		this.student_name = student_name;
 	}
+	
+	public AttendanceEntity() {}
 
 	// constructors, getters and setters
 	
